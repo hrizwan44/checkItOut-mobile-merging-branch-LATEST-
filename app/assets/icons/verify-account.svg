@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="273" height="77" viewBox="0 0 273 77">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.789" y1="1" x2="0.07" y2="0.263" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#00ebd3" stop-opacity="0.322"/>
+      <stop offset="1" stop-color="#007380" stop-opacity="0.278"/>
+    </linearGradient>
+    <filter id="Rectangle_1608" x="0" y="0" width="273" height="77" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_315" data-name="Group 315" transform="translate(-98 -293)">
+    <g transform="matrix(1, 0, 0, 1, 98, 293)" filter="url(#Rectangle_1608)">
+      <g id="Rectangle_1608-2" data-name="Rectangle 1608" transform="translate(9 6)" stroke="#00ffe5" stroke-width="1" fill="url(#linear-gradient)">
+        <rect width="255" height="59" rx="28" stroke="none"/>
+        <rect x="0.5" y="0.5" width="254" height="58" rx="27.5" fill="none"/>
+      </g>
+    </g>
+    <text id="Verify_your_account" data-name="Verify your account" transform="translate(131 337)" fill="#fff" font-size="24" font-family="ProximaNova-Semibold, Proxima Nova" font-weight="600"><tspan x="0" y="0">Verify your account</tspan></text>
+  </g>
+</svg>

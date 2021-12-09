@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CheckitOut</string>
+    <!-- codepush prodution key below -->
+    <!-- <string moduleConfig="true" name="CodePushDeploymentKey">doTbr9I4D94hUJmkGizPeAuuXblftWt37e2fK</string> -->
+    <!-- codepush statgin key below -->
+    <!-- <string moduleConfig="true" name="CodePushDeploymentKey">EtpyEYjpzxCXbRUhYgLTNt3xCmu7s1V3iXy8w</string> -->
+    <string name="facebook_app_id">858400658435116</string>
+    <string name="fb_login_protocol_scheme">fb858400658435116</string>
+    <string name="facebook_client_token">f7aed60014671f7293e412e7f51a1e49</string>
+    <string name="server_client_id">128610945537-22l1590lraet3q4rk53lktpjq01e7lub.apps.googleusercontent.com</string>
+</resources>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="49.559" height="66.233" viewBox="0 0 49.559 66.233">
+  <g id="Notifications" transform="translate(0 2.5)" opacity="0.57">
+    <g id="alarm-bell">
+      <path id="Path_39" data-name="Path 39" d="M10,21.75a5.752,5.752,0,0,0,11.027,0" transform="translate(9.273 35.869)" fill="none" stroke="#2b2b2b" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+      <path id="Path_40" data-name="Path 40" d="M12,6.924V.75" transform="translate(12.779 -0.75)" fill="none" stroke="#2b2b2b" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <path id="Path_41" data-name="Path 41" d="M27.779,3A20.614,20.614,0,0,1,48.429,23.578c0,19.333,4.13,22.636,4.13,22.636H3s4.13-5.257,4.13-22.636A20.614,20.614,0,0,1,27.779,3Z" transform="translate(-3 3.173)" fill="#2b2b2b"/>
+    </g>
+  </g>
+</svg>

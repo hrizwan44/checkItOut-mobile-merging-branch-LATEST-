@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "128610945537",
+    "project_id": "checkitout-1626547427849",
+    "storage_bucket": "checkitout-1626547427849.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128610945537:android:e2b009483a18f1aca2ce00",
+        "android_client_info": {
+          "package_name": "com.ulemapakistan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "128610945537-02qnvskrdb4vpb6qtl7qilvlmurkb34t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ulemapakistan",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "128610945537-cgi30ojigti59dgvu8gcq8tqbmole0ad.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ulemapakistan",
+            "certificate_hash": "d6f5cac79e6ad2ec3ce7e5a5753978c2ba316576"
+          }
+        },
+        {
+          "client_id": "128610945537-cgi30ojigti59dgvu8gcq8tqbmole0ad.apps.googleusercontent.com",
+          "client_type": 3,
+          "android_info": {
+            "package_name": "com.ulemapakistan",
+            "certificate_hash": "d6f5cac79e6ad2ec3ce7e5a5753978c2ba316576"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtzmZtRepEmr6Ez4yoJQ1Fj77HSN_o6BQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "128610945537-22l1590lraet3q4rk53lktpjq01e7lub.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "128610945537-cgi30ojigti59dgvu8gcq8tqbmole0ad.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
