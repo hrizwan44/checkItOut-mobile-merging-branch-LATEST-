@@ -28,6 +28,7 @@ import HelpCenterDetails from "../screens/general/help-center/HelpCenterDetails"
 import VideoPlay from "../screens/Dashboard";
 import ProfileNav from "../screens/profile/navigation";
 import DashboardNav from "../screens/Dashboard/navigation";
+import MessagingNav from "../screens/general/messaging/navigation";
 import ChatScreen from "../screens/general/messaging/Chat";
 import MessageScreen from "../screens/general/messaging";
 import VideoPreview from "../screens/check-it-in/video-upload/VideoPreview";
@@ -36,6 +37,7 @@ import { ThemeContext } from "../context/ThemeContext";
 import { Theme } from "../util/helpers";
 import PremiumIcon from "../assets/icons/premium-icon.svg";
 import SubscriptionStack from "../screens/profile/subscription/navigation";
+import Bids from "../screens/general/messaging/Bids";
 
 // import VideoPlay from "../screens/Dashboard";
 const theme = "Dark";
@@ -110,7 +112,7 @@ const bottomTabNavRoutes = {
 	},
 
 	Messaging: {
-		screen: MessageScreen,
+		screen: () => <MessagingNav />,
 		navigationOptions: ({ navigation }) => ({
 			tabBarIcon: ({ tintColor }) => (
 				<Image
@@ -153,7 +155,7 @@ const bottomTabNavRoutes = {
 			headerStyle: { backgroundColor: "#253542" },
 			headerTitleStyle: { color: "white" },
 			headerTitleAlign: "center",
-			headerLeft: ({ navigation }) => {},
+			headerLeft: ({ navigation }) => { },
 			tabBarIcon: ({ tintColor }) => (
 				<Image
 					source={require("../assets/images/bottom-tab-profile.png")}
@@ -210,6 +212,7 @@ const simpleNavRoute = {
 	VideoUpload: () => <VideoUpload />,
 	VideoPreview: () => <VideoPreview />,
 	ItemListing: () => <ItemListing />,
+	Messaging: () => <MessagingNav />
 };
 
 const MyTransition = {
@@ -229,6 +232,10 @@ const MainRoute = createStackNavigator(
 			screen: BottomTabNav,
 			navigationOptions: navigationOptions,
 		},
+		Bid: {
+			screen: Bids,
+			navigationOptions: navigationOptions,
+		},
 		SimpleNav: {
 			screen: SimpleNav,
 			navigationOptions: navigationOptions,
@@ -239,6 +246,10 @@ const MainRoute = createStackNavigator(
 		},
 		DashboardNav: {
 			screen: DashboardNav,
+			navigationOptions: navigationOptions,
+		},
+		MessagingNav: {
+			screen: MessagingNav,
 			navigationOptions: navigationOptions,
 		},
 	},

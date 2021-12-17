@@ -27,6 +27,7 @@ import StandardSubscription from "./StandardSubscription";
 import VerifyAccount from "./verifyAccount";
 import SavedAlerts from "./savedAlerts";
 import Otp from "../Otp";
+import SalesPurchase from './salePurchase/SalesPurchase'
 const navigationOptions = {
 	title: "ProfileSettings",
 	transitionSpec: {
@@ -118,6 +119,10 @@ const profileNavRoute = {
 	},
 	Otp: {
 		screen: Otp,
+		navigationOptions: navigationOptions,
+	},
+	SalesPurchase: {
+		screen: SalesPurchase,
 		navigationOptions: navigationOptions,
 	},
 };

@@ -9,6 +9,15 @@ export async function storeData(key, value) {
 		console.log("Error: ", error);
 	}
 }
+
+export const clearStorage = async () => {
+	try {
+		await EncryptedStorage.clear();
+		// Congrats! You've just cleared the device storage!
+	} catch (error) {
+		// There was an error on the native side
+	}
+}
 export const retrieveData = (key) =>
 	new Promise(async (resolve, reject) => {
 		try {

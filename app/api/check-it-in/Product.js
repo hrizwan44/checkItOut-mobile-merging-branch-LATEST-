@@ -30,6 +30,10 @@ export async function createProduct(apiData) {
       "Content-Type": "application/json",
     },
   };
+
+  apiData["videoUrl"] = (apiData.videoUrl?.data) ? apiData.videoUrl.data : apiData.videoUrl
+  // debugger
+
   console.log('uploaing', apiData);
   return API.post("/product", JSON.stringify(apiData), config);
 }
@@ -150,7 +154,7 @@ export async function getProductById(productId) {
 export async function uploadVideo(name, uri) {
   console.log("API ::: ", API);
   console.log("API CALLED: uploadVideo");
-  console.log(name, uri);
+  console.log("Ssssss::::::", name, uri);
   try {
 
     let data = await EncryptedStorage.getItem("userData");
@@ -165,7 +169,7 @@ export async function uploadVideo(name, uri) {
     };
     var formData = new FormData();
     const videoName = new Date().getTime().toString() + ".mp4";
-    console.log(videoName);
+    console.log("NAME VIDEO", videoName);
 
     formData.append("product", {
       uri,
@@ -173,6 +177,7 @@ export async function uploadVideo(name, uri) {
       type: "video/mp4",
     });
     console.log("FORM DATA", formData);
+    console.log("FORM DATA", API.post(`/product/upload-image`, formData, config));
     return API.post(`/product/upload-image`, formData, config);
 
   } catch (error) {

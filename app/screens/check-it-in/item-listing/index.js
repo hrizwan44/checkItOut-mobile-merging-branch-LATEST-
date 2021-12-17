@@ -28,7 +28,8 @@ import { ThemeContext } from "../../../context/ThemeContext";
 import Loader from "../../../components/LoaderScreen";
 import { NavigationEvents } from "react-navigation";
 import { getUserProduct } from "../../../api/check-it-in/Product";
-const ItemListing = (props) => {
+const ItemListing = ({ navigateHadler, navigation }) => {
+	console.log("ITEM LISTING ", navigation)
 	const mode = "cio";
 	const [activeMode, setActiveMode] = useState("cii");
 	const [displayMode, setDisplayMode] = useState("default");
@@ -42,12 +43,20 @@ const ItemListing = (props) => {
 	const [videoData, setVideoData] = useState([]);
 	const [selectedProduct, setSelectedProduct] = useState();
 	useEffect(() => {
+		// _handleMode("Dashboard")
+
 		setStyles(getStyles(themeContext.isDarkMode));
-		getUserProduct().then((res) => {
-			console.log("res", res);
-			setVideoData(res.data.results);
-		});
+		// getUserProduct().then((res) => {
+		// 	console.log("res", res);
+		// 	setVideoData(res.data.results);
+		// });
 	}, [tempState]);
+
+	const handler = () => {
+		console.log("ITEM LISTING1")
+		navigateHadler()
+	}
+
 	return (
 		<>
 			{!styles ? (
@@ -61,13 +70,17 @@ const ItemListing = (props) => {
 						onDidFocus={(payload) => setTempState(tempState + 1)}
 					/>
 					{displayMode == "default" && (
+
 						<FlatList
-							data={videoData}
+							data={[{ uid: 1, videoUrl: '', title: "Rizwan", description: 'This is my item' }]}
+							// data={videoData}
 							pagingEnabled={true}
 							renderItem={({ item, index }) => {
 								return (
 									<ItemList
 										handle={_handleMode}
+										navigateHadler={handler}
+										navigation={navigation}
 										ItemId={item.uid}
 										imageUrl={item.videoUrl}
 										title={item.title}

@@ -53,6 +53,8 @@ const renderTabBar = (props) => {
 	);
 };
 export default ({ navigation }) => {
+	console.log("MESSAGES ++++++ >>>>>>>>>>>")
+	// navigation.navigate("SalesPurchase")
 	const [tempState, setTempState] = useState(0);
 	const [screenTitle, setScreenTitle] = useState("Inbox");
 	const _handleScreen = (currentScreen) => {

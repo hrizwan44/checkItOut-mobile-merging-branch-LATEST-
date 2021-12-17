@@ -64,7 +64,7 @@ const Chat = ({ title, dp, topMessage, time, handleScreen }) => {
 const Inbox = ({ handleScreen, styleSheet }) => {
 	const { isDarkMode } = useContext(ThemeContext);
 	const [styles, setStyles] = useState(getStyles(isDarkMode));
-
+	console.log("INBOX")
 	useEffect(() => {
 		setStyles(getStyles(isDarkMode));
 	}, [isDarkMode]);

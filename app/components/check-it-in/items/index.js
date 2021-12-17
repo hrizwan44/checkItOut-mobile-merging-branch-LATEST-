@@ -9,27 +9,31 @@ import {
 	Image,
 	ImageBackground,
 } from "react-native";
+import navigate from '../../../navigation/NavigationService';
 import { ThemeContext } from "../../../context/ThemeContext";
 import { retrieveData } from "../../../util/helpers";
 import getStyles from "./styles";
 import { Thumbnail } from "react-native-thumbnail-video";
 import Video from "react-native-video";
-const ItemList = (props) => {
+import { StackActions, NavigationActions } from 'react-navigation';
+const ItemList = ({ navigateHadler, navigation, imageUrl, title, description, ItemId, handle }) => {
 	const themeContext = useContext(ThemeContext);
 	const [styles, setStyles] = useState(getStyles(themeContext.isDarkMode));
 	useEffect(() => {
+		// navigation.popToTop()
+		console.log("NAVIGATION", navigation)
 		setStyles(getStyles(themeContext.isDarkMode));
-		console.log(props.imageUrl);
+		console.log(imageUrl);
 	}, []);
 
 	return (
 		<TouchableOpacity
 			onPress={() =>
-				props.handle("details", {
-					title: props.title,
-					description: props.description,
-					videoUrl: props.imageUrl,
-					ItemId: props.ItemId,
+				handle("details", {
+					title: title,
+					description: description,
+					videoUrl: imageUrl,
+					ItemId: ItemId,
 				})
 			}
 		>
@@ -37,7 +41,7 @@ const ItemList = (props) => {
 				<View style={{ flex: 1 }}>
 					<Video
 						source={{
-							uri: props.imageUrl,
+							uri: imageUrl,
 						}}
 						// source={this.props.item?.videoUrl}
 						repeat
@@ -51,14 +55,30 @@ const ItemList = (props) => {
 						source={{uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"}}
 						style={styles.profile}
 					/>  */}
+					{/* <View>
+						<Image style={{ width: 20, height: 20 }} source={require("../../../assets/icons/watchicon.jpg")} />
+					</View> */}
 				</View>
 				<View style={styles.textContainer}>
-					<View>
-						<Text style={styles.heading}>{props.title}</Text>
+					<View style={{ flexDirection: 'row', justifyContent: "space-between" }}>
+						<View>
+							<Text style={styles.heading}>{title}</Text>
+							<Text style={styles.heading1}>$2000</Text>
+						</View>
+						<View style={{ width: 70, height: 50, alignItems: 'center' }}>
+							<TouchableOpacity onPress={() => navigation.navigate("BidScreen")}>
+								<View style={{ width: 60, height: 30, backgroundColor: "#fff", borderRadius: 15, justifyContent: 'center', alignItems: 'center' }}>
+									<Text style={{ color: "#313131", fontSize: 14, fontWeight: 'bold', }}>Bids</Text>
+									<View style={{ width: 20, height: 20, backgroundColor: "#ff6565", borderRadius: 50, position: 'absolute', top: -5, left: -10, justifyContent: 'center', alignItems: 'center' }}>
+										<Text style={{ fontSize: 10, fontWeight: 'bold', color: "#fff", }}>99+</Text>
+									</View>
+								</View>
+							</TouchableOpacity>
+						</View>
 					</View>
 					<View>
 						<Text numberOfLines={4} style={styles.text}>
-							{props.description}
+							{description}
 						</Text>
 					</View>
 				</View>

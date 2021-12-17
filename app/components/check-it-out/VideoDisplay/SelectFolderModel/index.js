@@ -86,7 +86,7 @@ const SelectFolderModel = (props) => {
           }
         </View>
       </View>
-    </View >
+    </View>
   );
 };
 export default SelectFolderModel;

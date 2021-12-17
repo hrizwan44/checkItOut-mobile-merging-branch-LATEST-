@@ -65,7 +65,7 @@ const VideoPreview = ({ navigation }) => {
 	};
 	const _handleSubmit = () => {
 		setIsLoading(true);
-		console.log("URRIIIRIRIIRIIRI", videoUri.uri);
+		console.log("details", videoUri.uri);
 		setVideoUriContext(videoUri.uri);
 		uploadVideo("video.mp4", videoUri.uri)
 			.then((res) => {
@@ -91,7 +91,7 @@ const VideoPreview = ({ navigation }) => {
 				console.log(err);
 				console.log("FILE TOO LARGE2", err)
 				setIsLoading(false);
-				Alert.alert("File too large!");
+				// Alert.alert("File too large!");
 			});
 	};
 	return (

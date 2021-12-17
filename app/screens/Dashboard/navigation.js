@@ -10,6 +10,9 @@ import { createAppContainer, withNavigationFocus } from "react-navigation";
 import Dashboard from "../Dashboard/index";
 import OthersProfile from "../profile/others-profile/index";
 import ProductDescription from "../check-it-out/ProductDescription/index";
+import Payment from "../profile/subscription/Payment";
+import Bids from "../general/messaging/Bids";
+import MessagingScreen from "../general/messaging";
 const profileNavConfig = {
 	headerMode: "none",
 };
@@ -32,7 +35,18 @@ const profileNavRoute = {
 		navigationOptions: navigationOptions,
 	},
 	ProductDescription: {
+
 		screen: ProductDescription,
+		navigationOptions: navigationOptions,
+	},
+	BidScreen: {
+
+		screen: Bids,
+		navigationOptions: navigationOptions,
+	},
+	MessagingScreen: {
+
+		screen: MessagingScreen,
 		navigationOptions: navigationOptions,
 	},
 };

@@ -40,6 +40,10 @@ const StandardSubscription = (props) => {
 		setStyles(getStyles(themeContext.isDarkMode));
 		setTheme(themeContext.isDarkMode);
 	}, []);
+
+	const handlePress = () => {
+		props.navigation.navigate("Payment")
+	}
 	return (
 		<View style={styles.mainContainer}>
 			<Header
@@ -103,11 +107,13 @@ const StandardSubscription = (props) => {
 							<Text style={styles.pricePeriod}>/month</Text>
 						</View>
 
+
 						<Button
 							gradient
 							gradientColor={["#00EBD3", "#007380"]}
 							round
 							style={styles.btn}
+							onPress={handlePress}
 						>
 							Make Payment
 						</Button>

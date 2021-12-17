@@ -71,6 +71,7 @@ export default class Button extends Component {
 					])}
 				>
 					<TouchableOpacity
+						// onPress={onPress}
 						{...rest}
 						style={{
 							width: "100%",
@@ -81,7 +82,7 @@ export default class Button extends Component {
 							alignContent: "center",
 						}}
 						disabled={loading || disabled}
-						// activeOpacity={0.9}
+					// activeOpacity={0.9}
 					>
 						{icon ? icon : null}
 						<Text
@@ -101,8 +102,8 @@ export default class Button extends Component {
 									loadingColor
 										? loadingColor
 										: outline
-										? BaseColor.primaryColor
-										: BaseColor.whiteColor
+											? BaseColor.primaryColor
+											: BaseColor.whiteColor
 								}
 								style={{ paddingLeft: 5 }}
 							/>

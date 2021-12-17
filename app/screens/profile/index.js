@@ -27,6 +27,7 @@ import { retrieveData, storeData } from "../../util/helpers";
 
 import Loader from "../../components/LoaderScreen";
 import NavigationService from "../../navigation/NavigationService";
+import navigation from "../../navigation";
 const Profile = (props) => {
 	const { userSession, logout } = useContext(AuthContext);
 	const user = userSession.user;
@@ -138,7 +139,7 @@ const Profile = (props) => {
 									titleStyle={styles.titleStyle}
 									renderRightStyle={{ marginRight: 42.5 }}
 									renderRight={<ArrowCard />}
-									onPressRight={() => {}}
+									onPressRight={() => { props.navigation.navigate("SalesPurchase") }}
 								/>
 							</View>
 							<View>
@@ -182,7 +183,7 @@ const Profile = (props) => {
 									titleStyle={styles.titleStyle}
 									renderRight={<ArrowCard />}
 									renderRightStyle={{ marginRight: 42.5 }}
-									onPressRight={() => {}}
+									onPressRight={() => { }}
 								/>
 								<LinkCard
 									profile={true}
@@ -210,7 +211,7 @@ const Profile = (props) => {
 										</>
 									}
 									renderRightStyle={{ marginRight: 42.5 }}
-									onPressRight={() => {}}
+									onPressRight={() => { }}
 								/>
 							</View>
 							<View>

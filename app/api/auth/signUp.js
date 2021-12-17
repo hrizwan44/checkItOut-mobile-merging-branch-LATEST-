@@ -1,6 +1,6 @@
 import config from "react-native-config";
 const backendServer = config.BACKEND_SERVER;
-const routeBase = "v1/auth";
+const routeBase = "/v1/auth";
 export const signUp = ({ name, email, password, phoneNumber }) =>
   new Promise((resolve, reject) => {
     const url = `${backendServer}/${routeBase}/register`;
@@ -22,5 +22,8 @@ export const signUp = ({ name, email, password, phoneNumber }) =>
           }
         });
       })
-      .catch((error) => reject(error));
+      .catch((error) => {
+        console.log("FETCH ERROR :: ", error)
+        reject(error)
+      });
   });

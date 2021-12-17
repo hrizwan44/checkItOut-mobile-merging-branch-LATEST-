@@ -15,8 +15,9 @@ import {
 	createProduct,
 	updateProduct,
 } from "../../../../api/check-it-in/Product";
-import { removeData, retrieveData } from "../../../../util/helpers";
+import { removeData, retrieveData, clearStorage } from "../../../../util/helpers";
 import { AuthContext } from "../../../../context/authContext";
+import { AsyncStorage } from "react-native";
 const Delivery = () => {
 	const {
 		edit,
@@ -43,13 +44,17 @@ const Delivery = () => {
 		setStyles(getStyles(themeContext.isDarkMode));
 	}, [tempState]);
 
-	const _handleNext = () => {
+	const _handleNext = async () => {
+		// alert("Click")
+
 		setIsLoading(true);
 		retrieveData("productData").then((data) => {
 			console.log(data);
-			delete data["videoUri"];
 			console.log(data);
+			// debugger
 			if (edit) {
+				delete data["videoUri"];
+				console.log("IF ENTER")
 				updateProduct({ ...data, location }, product.uid)
 					.then((res) => {
 						console.log(res);
@@ -64,12 +69,18 @@ const Delivery = () => {
 						alert(err.response?.data?.message);
 					});
 			} else {
+				console.log("ELSE ENTER",)
+				console.log("DATAA >>>>>> : ", data)
+				// debugger
 				createProduct({ ...data, location })
 					.then((res) => {
 						console.log(res);
 						setIsLoading(false);
 						setProduct({});
 						setTitleContext();
+						console.log("CLEAR")
+						removeData("productData")
+						// clearStorage()
 						setEdit(false);
 						NavigationService.navigate("AdPosted");
 					})

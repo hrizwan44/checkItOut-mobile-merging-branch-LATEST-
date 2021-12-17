@@ -38,6 +38,10 @@ const GoldSubscription = (props) => {
 		setStyles(getStyles(themeContext.isDarkMode));
 		setTheme(themeContext.isDarkMode);
 	}, []);
+
+	const handlePress = () => {
+		props.navigation.navigate("Payment")
+	}
 	return (
 		<View style={styles.mainContainer}>
 			<Header
@@ -114,6 +118,7 @@ const GoldSubscription = (props) => {
 							styleText={{ color: "black" }}
 							round
 							style={styles.btn}
+							onPress={handlePress}
 						>
 							Make Payment
 						</Button>

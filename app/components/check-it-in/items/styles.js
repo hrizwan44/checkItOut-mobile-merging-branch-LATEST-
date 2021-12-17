@@ -31,11 +31,16 @@ export default (isDarkMode) => {
 			fontFamily: "Segoe UI Semilight",
 			color: theme == "Dark" ? "white" : "black",
 		},
+		heading1: {
+			fontSize: 16,
+			fontWeight: "bold",
+			fontFamily: "Segoe UI Semilight",
+			color: theme == "Dark" ? "white" : "black",
+		},
 		text: {
 			fontSize: 17,
 			fontWeight: "normal",
 			fontFamily: "Segoe UI Semilight",
-
 			color: theme == "Dark" ? "white" : "black",
 		},
 	});

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import RNFS from "react-native-fs";
-import { View, SafeAreaView, ScrollView, Alert } from "react-native";
+import { View, SafeAreaView, ScrollView, Alert, AsyncStorage } from "react-native";
 import * as ImagePicker from "react-native-image-picker";
 import RNFetchBlob from "rn-fetch-blob";
 import Video from "react-native-video";
@@ -78,6 +78,7 @@ const Main = (props) => {
 						console.log("Rizwan", data)
 
 						setVideoUri(data)
+						return data
 						// setSource(data)
 						// this.setState({ source: data })
 						// this.setState({ loading: false, source: data }, () => this.getSourceInfos())
@@ -94,32 +95,43 @@ const Main = (props) => {
 
 
 
-	const _handleNext = () => {
-		console.log("Bilal", videoName, videoUri);
-		retrieveData("productData")
-			.then((data) => {
-				data = { ...data, title };
+	const _handleNext = async () => {
+		console.log("VIDEO URI : ", videoUri)
+		// try {
+		// 	// await AsyncStorage.setItem("videoUri", videoUri)
+		// } catch (error) {
+		// 	console.log("TRYCATCH ERROR ", error)
+		// }
+		// console.log("Bilal", videoName, videoUri);
+
+
+		// retrieveData("productData")
+		// 	.then((data) => {
+		// 		data = { ...data, title };
+		// 		storeData("productData", data);
+		// 		props.jumpTo(2);
+		// 	})
+		// 	.catch((err) => {
+
+		setIsLoading(true);
+		console.log("RIZWAN >>>>>>>>>>>", videoUri)
+		// storeData("productData", { title, videoUrl: product.videoUrl });
+		uploadVideo(videoName, videoUri)
+			.then((res) => {
+				console.log('responseis', res);
+				// debugger
+				setIsLoading(false);
+				const data = { title, videoUrl: res.data.data };
+				// console.log('data is ', data.videoUrl)
 				storeData("productData", data);
 				props.jumpTo(2);
 			})
 			.catch((err) => {
-				setIsLoading(true);
-				//storeData("productData", { title, videoUrl: product.videoUrl });
-				uploadVideo(videoName, videoUri)
-					.then((res) => {
-						console.log('respons ei s', res);
-						setIsLoading(false);
-						const data = { title, videoUrl: res.data?.videoUrl, thumbnailUrl: res.data?.thumbnailUrl };
-						console.log('data is ', data)
-						storeData("productData", data);
-						props.jumpTo(2);
-					})
-					.catch((err) => {
-						console.log("FILE TOO LARGE", err)
-						setIsLoading(false);
-						alert("File too large!");
-					});
+				console.log("FILE TOO LARGE", err)
+				setIsLoading(false);
+				alert("File too large!");
 			});
+		// });
 	};
 
 	const selectVideo = async () => {
@@ -262,7 +274,7 @@ const Main = (props) => {
 								BaseColor.buttonPrimaryGradientStart,
 								BaseColor.buttonPrimaryGradientEnd,
 							]}
-							onPress={_handleNext()}
+							onPress={_handleNext}
 						>
 							Next
 						</Button>

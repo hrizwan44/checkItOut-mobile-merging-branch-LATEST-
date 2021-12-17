@@ -57,12 +57,14 @@ class VideoDisplay extends Component {
     const save = this.props.isSaved
     const { isSaved: prevSaved, } = prevProps
     const { isSaved } = this.props
+    console.log("VideoUPLOAD")
     if (prevSaved !== isSaved) {
       this.setState({ saved: save })
 
       console.log("Changed", this.props.isSaved)
     }
   }
+
   // componentDidMount(){
   // 	this.setState({
   // 		likes: this.props.item.likes,
@@ -180,7 +182,7 @@ class VideoDisplay extends Component {
                 console.log("buffer");
               }}
               style={styles.video}
-              paused={true}
+              paused={false}
               // resizeMode="contain"
               muted={true}
               volume={10}

@@ -82,6 +82,9 @@ const categories12 = [
 	{ title: "Watches & Jewelry", id: "6117a6f0ddda9d002130b6a7" },
 ];
 const VideoPlay = (props) => {
+
+	props.navigation.navigate('Bid');
+	console.log("DASHBOARD")
 	const [categories, setCategories] = useState(categories12);
 	const [searchText, setSearchText] = useState();
 	const [activeMode, setActiveMode] = useState("cio");
@@ -280,6 +283,11 @@ const VideoPlay = (props) => {
 		}
 	}
 
+	const navigateHandler = () => {
+		// props.navigation.navigate("Messaging", { screen: "BidScreen" })
+		console.log("navigateHandler")
+	}
+
 
 	return (
 		<>
@@ -294,7 +302,9 @@ const VideoPlay = (props) => {
 					/>
 					{activeMode == "cio" ? (
 						<>
+
 							{displayMode == "default" && (
+
 								<FlatList
 									data={videoData}
 									pagingEnabled={true}
@@ -342,7 +352,7 @@ const VideoPlay = (props) => {
 						</>
 					) : (
 						<>
-							<CheckItIn />
+							<CheckItIn navigateHandler={navigateHandler} navigation={props.navigation} />
 							{displayMode == "category" && (
 								<View style={styles.innerContainer}>
 									<TitledList

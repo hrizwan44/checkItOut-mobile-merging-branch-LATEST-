@@ -75,7 +75,10 @@ const Details = (props) => {
   }, [tempState]);
   const _handleNext = () => {
     retrieveData("productData").then((data) => {
+      // debugger
+      console.log("DATA HERE", data)
       data = { ...data, category, condition, brand, model, type, description };
+      // debugger
       storeData("productData", data);
     });
     props.jumpTo(3);
@@ -87,76 +90,76 @@ const Details = (props) => {
       {!styles ? (
         <Loader />
       ) : (
-          <ScrollView
-            keyboardShouldPersistTaps="handled"
-            contentContainerStyle={styles.container}
-          >
-            <NavigationEvents
-              onDidFocus={(payload) => setTempState(tempState + 1)}
-            />
-            <TitledComponent
-              containerStyle={styles.detailContainer}
-              title="Category"
-              titleStyle={styles.title}
-              valueComponent={
-                <View
+        <ScrollView
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={styles.container}
+        >
+          <NavigationEvents
+            onDidFocus={(payload) => setTempState(tempState + 1)}
+          />
+          <TitledComponent
+            containerStyle={styles.detailContainer}
+            title="Category"
+            titleStyle={styles.title}
+            valueComponent={
+              <View
+                style={{
+                  borderRadius: 15,
+                  borderWidth: 1,
+                  // borderColor: "#bdc3c7",
+                  overflow: "hidden",
+                  // borderBottomWidth: 1,
+                }}
+              >
+                <Picker
+                  selectedValue={category}
+                  onValueChange={(itemValue, itemIndex) =>
+                    setCategory(itemValue)
+                  }
                   style={{
-                    borderRadius: 15,
-                    borderWidth: 1,
-                    // borderColor: "#bdc3c7",
-                    overflow: "hidden",
-                    // borderBottomWidth: 1,
+                    borderRadius: 30,
+                    backgroundColor: "white",
                   }}
                 >
-                  <Picker
-                    selectedValue={category}
-                    onValueChange={(itemValue, itemIndex) =>
-                      setCategory(itemValue)
-                    }
-                    style={{
-                      borderRadius: 30,
-                      backgroundColor: "white",
-                    }}
-                  >
-                    {categories12.map((item) => {
-                      return <Picker.item label={item.title} value={item.id} />;
-                    })}
-                  </Picker>
-                </View>
-              }
-            />
+                  {categories12.map((item) => {
+                    return <Picker.item label={item.title} value={item.id} />;
+                  })}
+                </Picker>
+              </View>
+            }
+          />
 
-            <TitledComponent
-              containerStyle={styles.detailContainer}
-              title="Condition (Required)"
-              titleStyle={styles.title}
-              placeholderTextColor="gray"
-              valueComponent={
-                <View
+          <TitledComponent
+            containerStyle={styles.detailContainer}
+            title="Condition (Required)"
+            titleStyle={styles.title}
+            placeholderTextColor="gray"
+            valueComponent={
+              <View
+                style={{
+                  borderRadius: 15,
+                  borderWidth: 1,
+                  // borderColor: "#bdc3c7",
+                  overflow: "hidden",
+                }}
+              >
+                <Picker
+                  selectedValue={condition}
+                  onValueChange={(itemValue, itemIndex) =>
+                    setcondition(itemValue)
+                  }
                   style={{
-                    borderRadius: 15,
-                    borderWidth: 1,
-                    // borderColor: "#bdc3c7",
-                    overflow: "hidden",
+                    borderRadius: 30,
+                    backgroundColor: "white",
                   }}
                 >
-                  <Picker
-                    selectedValue={condition}
-                    onValueChange={(itemValue, itemIndex) =>
-                      setcondition(itemValue)
-                    }
-                    style={{
-                      borderRadius: 30,
-                      backgroundColor: "white",
-                    }}
-                  >
-                    {dropDownItems["condition"].map((item) => {
-                      return (
-                        <Picker.item label={item.label} value={item.value} />
-                      );
-                    })}
-                  </Picker>
-                  {/* // <CustomTextInput
+                  {dropDownItems["condition"].map((item) => {
+                    return (
+                      <Picker.item label={item.label} value={item.value} />
+                    );
+                  })}
+                </Picker>
+                {/* // <CustomTextInput
 							// 	style={styles.textInput}
 							// 	placeholder="Used"
 							// 	inputStyle={{
@@ -169,36 +172,36 @@ const Details = (props) => {
 							// 	value={condition}
 							// 	onChangeText={(text) => setcondition(text)}
 							// /> */}
-                </View>
-              }
-            />
-            <TitledComponent
-              containerStyle={styles.detailContainer}
-              title="Brand"
-              titleStyle={styles.title}
-              valueComponent={
-                <View
-                  style={{
-                    borderRadius: 15,
-                    borderWidth: 1,
-                    // borderColor: "#bdc3c7",
-                    overflow: "hidden",
-                  }}
+              </View>
+            }
+          />
+          <TitledComponent
+            containerStyle={styles.detailContainer}
+            title="Brand"
+            titleStyle={styles.title}
+            valueComponent={
+              <View
+                style={{
+                  borderRadius: 15,
+                  borderWidth: 1,
+                  // borderColor: "#bdc3c7",
+                  overflow: "hidden",
+                }}
+              >
+                <Picker
+                  selectedValue={brand}
+                  onValueChange={(itemValue, itemIndex) =>
+                    setbrand(itemValue)
+                  }
+                  style={{ borderRadius: 30, backgroundColor: "white" }}
                 >
-                  <Picker
-                    selectedValue={brand}
-                    onValueChange={(itemValue, itemIndex) =>
-                      setbrand(itemValue)
-                    }
-                    style={{ borderRadius: 30, backgroundColor: "white" }}
-                  >
-                    {dropDownItems["brand"].map((item) => {
-                      return (
-                        <Picker.item label={item.label} value={item.value} />
-                      );
-                    })}
-                  </Picker>
-                  {/* // <CustomTextInput
+                  {dropDownItems["brand"].map((item) => {
+                    return (
+                      <Picker.item label={item.label} value={item.value} />
+                    );
+                  })}
+                </Picker>
+                {/* // <CustomTextInput
                 //   style={styles.textInput}
                 //   placeholder="Vehicles and Transport"
                 //   placeholderTextColor="gray"
@@ -212,92 +215,92 @@ const Details = (props) => {
                 //   value={brand}
                 //   onChangeText={(text) => setbrand(text)}
                 // /> */}
-                </View>
-              }
-            />
-            <TitledComponent
-              containerStyle={styles.detailContainer}
-              title="Model"
-              titleStyle={styles.title}
-              valueComponent={
-                <CustomTextInput
-                  style={styles.textInput}
-                  placeholder="Vehicles and Transport"
-                  placeholderTextColor="gray"
-                  inputStyle={{
-                    paddingLeft: 10,
-                    fontSize: 17,
-                    borderRadius: 10,
-                    fontFamily: "Sogoe UI",
-                    width: "100%",
-                  }}
-                  value={model}
-                  onChangeText={(text) => setmodel(text)}
-                />
-              }
-            />
-            <TitledComponent
-              containerStyle={styles.detailContainer}
-              title="Type (optional)"
-              titleStyle={styles.title}
-              valueComponent={
-                <CustomTextInput
-                  style={styles.textInput}
-                  placeholder="Vehicles and Transport"
-                  placeholderTextColor="gray"
-                  inputStyle={{
-                    // marginLeft: 0.5,
-                    paddingLeft: 10,
-                    fontSize: 17,
-                    borderRadius: 10,
-                    fontFamily: "Sogoe UI",
-                    width: "100%",
-                  }}
-                  value={type}
-                  onChangeText={(text) => settype(text)}
-                />
-              }
-            />
-            <TitledComponent
-              containerStyle={styles.multilineDetailContainer}
-              title="Description (optional)"
-              titleStyle={styles.title}
-              valueComponent={
-                <CustomTextInput
-                  style={styles.multilineTextInput}
-                  autoCorrect={false}
-                  // placeholder="Add a note (optional)"
-                  inputStyle={{
-                    paddingTop: 10,
-                    paddingLeft: 10,
-                    fontSize: 14,
-                    borderRadius: 17,
-                    fontFamily: "Sogoe UI",
-                    width: "100%",
-                  }}
-                  multiline
-                  numberOfLines={40}
-                  textAlignVertical="top"
-                  value={description}
-                  onChangeText={(text) => setdescription(text)}
-                />
-              }
-            />
-            <Button
-              style={styles.nextButton}
-              gradient
-              gradientType="horizontalRight"
-              gradientColor={[
-                BaseColor.buttonPrimaryGradientStart,
-                BaseColor.buttonPrimaryGradientEnd,
-              ]}
-              onPress={_handleNext}
-            >
-              Next
-					</Button>
-            <ScreenBottomThreshold />
-          </ScrollView>
-        )}
+              </View>
+            }
+          />
+          <TitledComponent
+            containerStyle={styles.detailContainer}
+            title="Model"
+            titleStyle={styles.title}
+            valueComponent={
+              <CustomTextInput
+                style={styles.textInput}
+                placeholder="Vehicles and Transport"
+                placeholderTextColor="gray"
+                inputStyle={{
+                  paddingLeft: 10,
+                  fontSize: 17,
+                  borderRadius: 10,
+                  fontFamily: "Sogoe UI",
+                  width: "100%",
+                }}
+                value={model}
+                onChangeText={(text) => setmodel(text)}
+              />
+            }
+          />
+          <TitledComponent
+            containerStyle={styles.detailContainer}
+            title="Type (optional)"
+            titleStyle={styles.title}
+            valueComponent={
+              <CustomTextInput
+                style={styles.textInput}
+                placeholder="Vehicles and Transport"
+                placeholderTextColor="gray"
+                inputStyle={{
+                  // marginLeft: 0.5,
+                  paddingLeft: 10,
+                  fontSize: 17,
+                  borderRadius: 10,
+                  fontFamily: "Sogoe UI",
+                  width: "100%",
+                }}
+                value={type}
+                onChangeText={(text) => settype(text)}
+              />
+            }
+          />
+          <TitledComponent
+            containerStyle={styles.multilineDetailContainer}
+            title="Description (optional)"
+            titleStyle={styles.title}
+            valueComponent={
+              <CustomTextInput
+                style={styles.multilineTextInput}
+                autoCorrect={false}
+                // placeholder="Add a note (optional)"
+                inputStyle={{
+                  paddingTop: 10,
+                  paddingLeft: 10,
+                  fontSize: 14,
+                  borderRadius: 17,
+                  fontFamily: "Sogoe UI",
+                  width: "100%",
+                }}
+                multiline
+                numberOfLines={40}
+                textAlignVertical="top"
+                value={description}
+                onChangeText={(text) => setdescription(text)}
+              />
+            }
+          />
+          <Button
+            style={styles.nextButton}
+            gradient
+            gradientType="horizontalRight"
+            gradientColor={[
+              BaseColor.buttonPrimaryGradientStart,
+              BaseColor.buttonPrimaryGradientEnd,
+            ]}
+            onPress={_handleNext}
+          >
+            Next
+          </Button>
+          <ScreenBottomThreshold />
+        </ScrollView>
+      )}
     </>
   );
 };
